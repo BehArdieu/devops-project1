@@ -8,6 +8,10 @@ app.get('/', (req, res) => {
   res.send('Hello, DevOps World!');
 });
 
-app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`);
-});
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`);
+  });
+}
+
+module.exports = app;
